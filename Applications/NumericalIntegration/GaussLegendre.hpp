@@ -1,5 +1,7 @@
 #pragma once
 
+#include <concepts>
+
 #include "Applications/Definitions/functors.hpp"
 #include "armpl.h"
 
@@ -101,8 +103,9 @@ struct GaussLegendre {
    public:
 	template <typename Func, uint8_t points>
 	double eval(const Func& I) {
-		static_assert(std::derived_from<Func, RtoR<double>>,
-					  "Define integrand as subclass of OneDimIntegrand!!");
+		static_assert(std::derived_from<Func, RtoR<double>> ||
+						  std::derived_from<Func, RtoR<float>>,
+					  "Define integrand as subclass of RtoR!!");
 		static_assert((points == 2) || (points == 4) || (points == 8) ||
 						  (points == 16) || (points == 32) || (points == 64),
 					  "Can only have 2,4,8,16,32 or 64 GL integration points");
