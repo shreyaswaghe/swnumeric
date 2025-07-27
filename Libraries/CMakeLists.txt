@@ -1,3 +1,5 @@
-add_subdirectory(Vector)
-add_subdirectory(Matrix)
+# add_subdirectory(Vector) add_subdirectory(Matrix)
 add_subdirectory(Random)
+add_subdirectory(Tensor)
+add_subdirectory(CompoundTypes)
+add_subdirectory(Logging)

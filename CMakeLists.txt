@@ -41,6 +41,8 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   target_include_directories(swnumeric INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 endif()
 
+set(USE_LINALG_BLAS On)
+
 if(USE_LINALG_BLAS)
   message(STATUS "Using BLAS Libs")
   target_compile_definitions(swnumeric INTERFACE USE_LINALG_BLAS=1)
@@ -77,6 +79,8 @@ if(USE_LINALG_BLAS)
   target_link_libraries(
     swnumeric INTERFACE ${ARMPL_BLAS_LIB} ${ARMPL_LAPACK_LIB}
                         ${ARMPL_AMATH_LIB})
+
+  target_include_directories(swnumeric INTERFACE ${ARMPL_INCLUDE_DIR})
 
 else()
   message(STATUS "Not using BLAS Libs")
