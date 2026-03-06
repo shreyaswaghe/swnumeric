@@ -1,8 +1,6 @@
 #pragma once
 
 #include <mkl_cblas.h>
-#include <mkl_cblas_64.h>
-#include <sys/cdefs.h>
 
 #include <cassert>
 #include <cmath>
@@ -328,3 +326,16 @@ struct NormedVector {
   SIZE_CONDITIONED_VECTOR_T v;
   T (*norm)(const SIZE_CONDITIONED_VECTOR_T& x) = norm2;
 };
+
+// convenient aliases
+using Vector2 = StaticVector<2, double>;
+using Vector3 = StaticVector<3, double>;
+using Vector4 = StaticVector<4, double>;
+using Vector5 = StaticVector<5, double>;
+using Vector6 = StaticVector<6, double>;
+
+using FVector2 = StaticVector<2, float>;
+using FVector3 = StaticVector<3, float>;
+using FVector4 = StaticVector<4, float>;
+using FVector5 = StaticVector<5, float>;
+using FVector6 = StaticVector<6, float>;
